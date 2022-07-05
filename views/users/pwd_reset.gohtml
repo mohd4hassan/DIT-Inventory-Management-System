@@ -1,0 +1,55 @@
+{{define "pwdReset"}}
+{{template "header"}}
+<div class="container">
+  {{if .Alert}}
+    {{template "alert" .Alert}}
+  {{end}}
+  {{template "pwdResetForm"}}
+</div>
+{{template "bootstrap-js"}}
+
+</body>
+
+</html>
+{{end}}
+
+{{define "pwdResetForm"}}
+<div class="unix-login">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <div class="login-content">
+          <div class="login-logo">
+            <a href="/">
+              <img src="/assets/images/logo.png" alt="DIT Logo">
+              <span>DIT Inventory Management System</span>
+            </a>
+          </div>
+          <div class="login-form">
+            <h4>Reset Your Password</h4>
+            <form action="/reset" method="POST">
+              {{csrfField}}
+              <div class="form-group">
+                <label for="token">Reset Token</label>
+                <input type="text" name="token" class="form-control"
+                id="token" placeholder="Token is sent via email"
+                value="{{.Token}}" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+              </div>
+              <div class="checkbox">
+                <label class="pull-right">
+                    <a href="/forgot">Need to request a new token?</a>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}

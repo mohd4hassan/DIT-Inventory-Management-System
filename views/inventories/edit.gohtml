@@ -1,0 +1,154 @@
+{{define "yield"}}
+<div class="col-lg-12">
+   <div class="card alert">
+       <div class="card-header">
+           <h4>Inventory Management</h4>
+       </div>
+       <div class="card-body">
+           <div class="m-t-15">
+               <div class="row">
+                   <div class="col-md-12">
+                       <div class="user-profile-name dib">Inventory Details</div>
+                       <div class="useful-icon dib pull-right">
+                           <span><a href=""><i class="ti-pencil-alt"></i></a> </span>
+                           <span><a href=""><i class="ti-printer"></i></a></span>
+                           <span><a href=""><i class="ti-download"></i></a></span>
+                           <span><a href=""><i class="ti-share"></i></a></span>
+                       </div>
+                       <div class="custom-tab user-profile-tab">
+                           <ul class="nav nav-tabs" role="tablist">
+                               <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab" data-toggle="tab">Information</a></li>
+                               <li role="presentation" class=""><a href="#2" aria-controls="2" role="tab" data-toggle="tab">Details</a></li>
+                           </ul>
+                           <div class="tab-content">
+                               <div role="tabpanel" class="tab-pane active" id="1">
+                                   <form action="/inventories/{{.ID}}/update" method="POST" class="form-inline">
+                                       {{csrfField}}
+                                       <div class="proc-information">
+                                           <div class="proc-content">
+                                               <span class="proc-title">Product Name:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="prod_name" class="form-control" id="prod_name" placeholder="Product Name" value="{{.ProductName}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Product Code:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="prod_code" class="form-control" id="prod_code" placeholder="Product Code" value="{{.ProductCode}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Product Category:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="prod_cat" class="form-control" id="prod_cat" placeholder="Product Category" value="{{.ProductCategory}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Product Model:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="prod_model" class="form-control" id="prod_model" placeholder="Product Model" value="{{.ProductModel}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Quantity:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="quantity" class="form-control" id="quantity" placeholder="Quantity" value="{{.Quantity}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Description:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="description" class="form-control" id="description" placeholder="Description" value="{{.Description}}">
+                                               </span>
+                                           </div>
+                                           <hr>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Unit of Measure:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="unit_measure" class="form-control" id="unit_measure" placeholder="Unit of Measure" value="{{.UnitMeasure}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Units in Stock:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="unit_stock" class="form-control" id="unit_stock" placeholder="Units in Stock" value="{{.UnitStock}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Manufacturer:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="manufacturer" class="form-control" id="manufacturer" placeholder="Manufacturer" value="{{.Manufacturer}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Minimum Stock:</span>
+                                               <span class="proc-detail">
+                                                <input type="number" name="min_stock" class="form-control" id="min_stock" placeholder="Minimum Stock" value="{{.MinStock}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Re-order Quantity:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="reorder_qty" class="form-control" id="reorder_qty" placeholder="Re-order Quantity" value="{{.ReorderQty}}">
+                                               </span>
+                                           </div>
+                                           <hr>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Supplier:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="supplier" class="form-control" id="supplier" placeholder="Supplier" value="{{.Supplier}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Depreciation Value:</span>
+                                               <span class="proc-detail">
+                                                <input type="text" name="depr_val" class="form-control" id="depr_val" placeholder="Depreciation Value" value="{{.DepreciationValue}}">
+                                               </span>
+                                           </div>
+                                           <div class="proc-content">
+                                               <span class="proc-title">Status:</span>
+                                               <span class="proc-detail">
+                                                   <input type="text" name="status" class="form-control" id="status" value="{{.Status}}">
+                                               </span>
+                                           </div>
+                                       </div>
+                                       <button type="submit" class="btn btn-primary btn-flat btn-addon btn-sm"><i class="ti-save m-r-5"></i>Save</button>
+                                       <a href="/inventories/{{.ID}}">
+                                           <button type="button" class="btn btn-info btn-flat btn-addon btn-sm"><i class="ti-eye m-r-5"></i>View
+                                           </button>
+                                       </a>
+                                   </form>
+                               </div>
+                               <div role="tabpanel" class="tab-pane" id="2">
+                                   <div class="proc-content">
+                                       <span class="proc-title">Created:</span>
+                                       <span class="proc-detail">{{.CreatedAt}}</span>
+                                   </div>
+                                   <div class="proc-content">
+                                       <span class="proc-title">Updated:</span>
+                                       <span class="proc-detail">{{.UpdatedAt}}</span>
+                                   </div>
+                                   <div class="proc-content">
+                                       <span class="proc-title">Created By:</span>
+                                       <span class="proc-detail">{{.UserName}}</span>
+                                   </div>
+                                   <div class="proc-content">
+                                       <span class="proc-title">Email:</span>
+                                       <span class="proc-detail">{{.UserEmail}}</span>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

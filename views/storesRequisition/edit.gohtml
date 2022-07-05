@@ -1,0 +1,164 @@
+{{define "yield"}}
+<div class="col-lg-12">
+    <div class="card alert">
+        <div class="card-header">
+            <h4>Stores Requisition Records</h4>
+        </div>
+        <div class="card-body">
+            <div class="m-t-15">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="user-profile-name dib">Requisition Records</div>
+                        <div class="custom-tab user-profile-tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab"
+                                        data-toggle="tab">Information</a></li>
+                                <li role="presentation" class=""><a href="#2" aria-controls="2" role="tab"
+                                        data-toggle="tab">Details</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                {{$srID := .StoresRequisitions.ID}}
+                                <div role="tabpanel" class="tab-pane active" id="1">
+                                    <form action="/storesRequisition/{{$srID}}/update" method="POST" class="form-inline"
+                                        id="reqForm">
+                                        {{csrfField}}
+                                        <div class="proc-information">
+                                            <div class="proc-content">
+                                                <span class="proc-title">Serial No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" class="form-control"
+                                                        value="{{.StoresRequisitions.SerialNo}}" readonly>
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Department:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="department" class="form-control"
+                                                        id="department" placeholder="Department"
+                                                        value="{{.StoresRequisitions.Department}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Date:</span>
+                                                <span class="proc-detail">
+                                                    <input type="date" name="date" class="form-control date-control"
+                                                        id="date" placeholder="Date"
+                                                        value="{{.StoresRequisitions.Date}}">
+                                                </span>
+                                            </div>
+                                            <hr>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Description:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="description" class="form-control"
+                                                        id="description" placeholder="Description"
+                                                        value="{{.StoresRequisitions.Description}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Stock on hand:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="stock_on_hand" class="form-control"
+                                                        id="stock_on_hand" placeholder="Stock on hand"
+                                                        value="{{.StoresRequisitions.StockOnHand}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Quantity to be ordered:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="qty_ordered" class="form-control"
+                                                        id="qty_ordered" placeholder="Quantity to be ordered"
+                                                        value="{{.StoresRequisitions.Qty_Ordered}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">SIN No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="sinNo" class="form-control" id="sinNo"
+                                                        placeholder="SIN No." value="{{.StoresRequisitions.SINNo}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">LPO No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="lpoNo" class="form-control" id="lpoNo"
+                                                        placeholder="LPO No." value="{{.StoresRequisitions.LPONo}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Approval Status:</span>
+                                                <span class="proc-detail">
+                                                    {{if (eq .StoresRequisitions.Status "Approved")}}
+                                                    Approved
+                                                    {{else}}
+                                                    {{if (eq .StoresRequisitions.Status "Denied")}}
+                                                    Denied
+                                                    {{else}}
+                                                    Pending
+                                                    {{end}}
+                                                    {{end}}
+
+                                                    {{if (eq .User.Role "Administrator" "Head of Department")}}
+                                                    {{end}}
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title"></span>
+                                                <span class="proc-detail">
+                                                    <div class="form-group">
+                                                        <label for="status"></label>
+                                                        <select class="form-control" name="status" id="status" required>
+                                                            <option hidden></option>
+                                                            <option value="Approved" {{if (eq
+                                                                .StoresRequisitions.Status "Denied" )}}selected{{end}}>
+                                                                Approve</option>
+                                                            <option value="Denied" {{if (eq
+                                                                .StoresRequisitions.Status "Approved"
+                                                                )}}selected{{end}}>Deny</option>
+                                                        </select>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-flat btn-addon btn-sm"><i
+                                                class="ti-save m-r-5"></i>Save</button>
+                                        <a href="/storesRequisition/{{.StoresRequisitions.ID}}">
+                                            <button type="button" class="btn btn-info btn-flat btn-addon btn-sm"><i
+                                                    class="ti-eye m-r-5"></i>View
+                                            </button>
+                                        </a>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="2">
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created:</span>
+                                        <span class="proc-detail">{{.StoresRequisitions.CreatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Updated:</span>
+                                        <span class="proc-detail">{{.StoresRequisitions.UpdatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created By:</span>
+                                        <span class="proc-detail">{{.StoresRequisitions.UserName}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Email:</span>
+                                        <span class="proc-detail">{{.StoresRequisitions.UserEmail}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

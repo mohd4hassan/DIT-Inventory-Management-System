@@ -1,0 +1,147 @@
+{{define "yield"}}
+<div class="col-lg-12">
+    <div class="card alert">
+        <div class="card-header">
+            <h4>Procurement Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="m-t-15">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="user-profile-name dib">Material Requisition</div>
+                        <div class="useful-icon dib pull-right">
+                            <span><a href=""><i class="ti-pencil-alt"></i></a> </span>
+                            <span><a href=""><i class="ti-printer"></i></a></span>
+                            <span><a href=""><i class="ti-download"></i></a></span>
+                            <span><a href=""><i class="ti-share"></i></a></span>
+                        </div>
+                        <div class="custom-tab user-profile-tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab"
+                                        data-toggle="tab">Information</a></li>
+                                <li role="presentation" class=""><a href="#2" aria-controls="2" role="tab"
+                                        data-toggle="tab">Details</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="1">
+                                    <form action="/materialrequisition/{{.ID}}/update" method="POST" class="form-inline"
+                                        id="reqForm">
+                                        {{csrfField}}
+                                        <div class="proc-information">
+                                            <div class="proc-content">
+                                                <span class="proc-title">Procuring Entity Code No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="entity_code" class="form-control"
+                                                        id="entity_code" placeholder="Procuring Entity Code"
+                                                        value="{{.Entity_code}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Type of Procurement:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="proc_type" class="form-control"
+                                                        id="proc_type" placeholder="Type of Procurement"
+                                                        value="{{.Proc_type}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Subject of Procurement:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="subject" class="form-control" id="subject"
+                                                        placeholder="Subject of Procurement" value="{{.Subject}}">
+                                                </span>
+                                            </div>
+                                            <hr>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Item ID:</span>
+                                                <span class="proc-detail">{{.ID}}</span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Item Name:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="itemName" class="form-control"
+                                                        id="itemName" placeholder="Item Name" value="{{.ItemName}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Description:</span>
+                                                <span class="proc-detail">
+                                                    <textarea class="form-control" rows="4"
+                                                        name="description">{{.Description}}</textarea>
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Date Required:</span>
+                                                <span class="proc-detail">
+                                                    <input type="date" name="dateReq" class="form-control date-control" id="dateReq" placeholder="Date Required" value="{{.DateReq}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Unit of Measure:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="unit" class="form-control" id="unit"
+                                                        placeholder="Unit of Measure" value="{{.Unit}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Quantity:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="quantity" class="form-control"
+                                                        id="quantity" placeholder="Quantity" value="{{.Quantity}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Unit Cost:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="cost" class="form-control" id="cost"
+                                                        placeholder="Estimated unit cost" value="{{.Cost}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Sub Total Cost:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="subTotal" class="form-control"
+                                                        id="subTotal" placeholder="TZS " value="{{.SubTotal}}" readonly>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-flat btn-addon btn-sm"><i class="ti-save m-r-5"></i>Save</button>
+                                        <a href="/materialrequisition/{{.ID}}">
+                                            <button type="button" class="btn btn-info btn-flat btn-addon btn-sm"><i class="ti-eye m-r-5"></i>View
+                                            </button>
+                                        </a>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="2">
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created:</span>
+                                        <span class="proc-detail">{{.CreatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Updated:</span>
+                                        <span class="proc-detail">{{.UpdatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created By:</span>
+                                        <span class="proc-detail">{{.UserName}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Email:</span>
+                                        <span class="proc-detail">{{.UserEmail}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

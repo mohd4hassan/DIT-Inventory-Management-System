@@ -1,0 +1,38 @@
+{{define "sidebar"}}
+<div class="sidebar sidebar-shrink sidebar-gestures">
+	<div class="nano">
+		<div class="nano-content">
+			<ul class="nav-content">
+				<li class="sidebar-link"><a href="/"><i class="ti-home"></i>Dashboard</a>
+				</li>
+				<li class="sidebar-link"><a href="/materialrequisition"><i class="ti-briefcase"></i>Procurement Requisition for Goods</a>
+				</li>
+				<li class="sidebar-link"><a href="/grn"><i class="ti-tag"></i>Goods Received Note</a>
+				</li>
+				<li class="sidebar-link"><a href="/storesRequisition"><i class="ti-blackboard"></i>Stores Requisition</a>
+				</li>
+				<li class="sidebar-link"><a href="/gin"><i class="ti-ticket"></i>Stores Issue Note</a>
+				</li>
+				<li class="sidebar-link"><a href="/inventories"><i class="ti-shopping-cart-full"></i>Inventories Management</a>
+				</li>
+				<li class="sidebar-link"><a href="/tracking"><i class="ti-notepad"></i>Tracking Inventory Records</a>
+				</li>
+				{{if (eq .User.Role "Administrator" "PMU Officer" "Head of Department")}}
+				<li class="sidebar-link"><a href="/storesLedger"><i class="ti-pie-chart"></i>Stores Ledger</a>
+				</li>
+				<li class="sidebar-link"><a href="/depreciation"><i class="ti-agenda"></i>Depreciation Schedule</a>
+				</li>
+				<li class="sidebar-link"><a href="/disposableGoods"><i class="ti-package"></i>Disposable Goods</a>
+				</li>
+				<li class="sidebar-link"><a href="/reports"><i class="ti-zip"></i>Reports</a>
+				</li>
+				{{end}}
+				<li class="navbar-fixed-bottom">
+					<hr />
+					<a href="/logout" class="m-t-0 p-t-0" style="color: #dc143c;"><i class="ti-power-off"></i>Logout</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+{{end}}

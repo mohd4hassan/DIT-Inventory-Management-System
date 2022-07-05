@@ -1,0 +1,135 @@
+{{define "yield"}}
+<div class="col-md-12">
+	<div class="panel panel-dark">
+		<div class="panel-heading">
+			<h3 class="panel-title">New Tracking Records Form</h3>
+		</div>
+		<div class="panel-body">
+			{{template "NewTrackingRecordsForm"}}
+		</div>
+	</div>
+</div>
+{{end}}
+
+{{define "NewTrackingRecordsForm"}}
+<form class="form-horizontal" action="/tracking" method="POST">
+	{{csrfField}}
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="serial">Serial No.</label>
+				<div class="col-md-7">
+					<input type="number" name="serial" class="form-control" id="serial" placeholder="Serial No.">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="item">Item/Product/Device</label>
+				<div class="col-md-7">
+					<input type="text" name="item" class="form-control" id="item" placeholder="Item/Product/Device">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="item_model">Model/Manufacture</label>
+				<div class="col-md-7">
+					<input type="text" name="item_model" class="form-control" id="item_model"
+						placeholder="Model/Manufacture">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="quantity">Quantity</label>
+				<div class="col-md-7">
+					<input type="number" name="quantity" class="form-control" id="quantity" placeholder="Quantity">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="staff_name">Authorized to</label>
+				<div class="col-md-7">
+					<input type="text" name="staff_name" class="form-control" id="staff_name" placeholder="Staff's Name">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="staff_email">Email</label>
+				<div class="col-md-7">
+					<input type="text" name="staff_email" class="form-control" id="staff_email" placeholder="Staff's Email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="staff_mob">Mobile No.</label>
+				<div class="col-md-7">
+					<input type="text" name="staff_mob" class="form-control" id="staff_mob"
+						placeholder="Staff's Mobile Phone">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="staff_office">Office</label>
+				<div class="col-md-7">
+					<input type="text" name="staff_office" class="form-control" id="staff_office"
+						placeholder="Staff's Office">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="staff_dept">Department</label>
+				<div class="col-md-7">
+					<input type="text" name="staff_dept" class="form-control" id="staff_dept"
+						placeholder="Staff's Department">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="date_taken">Date Issued</label>
+				<div class="col-md-7">
+					<input type="text" name="date_taken" class="form-control" id="date_taken"
+						placeholder="Date Item was Issued">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="authorizer">Authorized By</label>
+				<div class="col-md-7">
+					<input type="text" name="authorizer" class="form-control" id="authorizer" placeholder="Name of Authorizer">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="expect_return">Expected Returning Date</label>
+				<div class="col-md-7">
+					<input type="text" name="expect_return" class="form-control" id="expect_return" placeholder="Expected Item Returning Date">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="status">Status</label>
+				<div class="col-md-7">
+					<input type="text" name="status" class="form-control" id="status" placeholder="Condition Status">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3 col-lg-offset-9">
+			<button type="submit" class="btn btn-md btn-block btn-primary">Add</button>
+		</div>
+	</div>
+</form>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

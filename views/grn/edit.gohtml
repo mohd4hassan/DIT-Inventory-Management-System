@@ -1,0 +1,203 @@
+{{define "yield"}}
+<div class="col-lg-12">
+    <div class="card alert">
+        <div class="card-header">
+            <h4>Goods Received Note (GRN) Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="m-t-15">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="user-profile-name dib">Goods Received Records</div>
+                        <div class="useful-icon dib pull-right">
+                            <span><a href=""><i class="ti-pencil-alt"></i></a> </span>
+                            <span><a href=""><i class="ti-printer"></i></a></span>
+                            <span><a href=""><i class="ti-download"></i></a></span>
+                            <span><a href=""><i class="ti-share"></i></a></span>
+                        </div>
+                        <div class="custom-tab user-profile-tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab"
+                                        data-toggle="tab">Information</a></li>
+                                <li role="presentation" class=""><a href="#2" aria-controls="2" role="tab"
+                                        data-toggle="tab">Details</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="1">
+                                    <form action="/grn/{{.ID}}/update" method="POST" class="form-inline" id="reqForm">
+                                        {{csrfField}}
+                                        <div class="proc-information">
+                                            <div class="proc-content">
+                                                <span class="proc-title">Serial No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" class="form-control" value="{{.SerialNo}}" readonly>
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Supplier's Name:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="supplierName" class="form-control"
+                                                        id="supplierName" placeholder="Supplier's Name"
+                                                        value="{{.SupplierName}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Date:</span>
+                                                <span class="proc-detail">
+                                                    <input type="date" name="date" class="form-control date-control" id="date"
+                                                        placeholder="Date" value="{{.Date}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Department:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="department" class="form-control"
+                                                        id="department" placeholder="Department"
+                                                        value="{{.Department}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">LPO No,:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="lpo_no" class="form-control" id="lpo_no"
+                                                        placeholder="LPO No," value="{{.LPONo}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">LPO Date:</span>
+                                                <span class="proc-detail">
+                                                    <input type="date" name="lpo_date" class="form-control date-control"
+                                                        id="lpo_date" placeholder="LPO Date" value="{{.LPODate}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">SRN No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="srn_no" class="form-control" id="srn_no"
+                                                        placeholder="SRN No." value="{{.SRNNo}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">SRN Date:</span>
+                                                <span class="proc-detail">
+                                                    <input type="date" name="srn_date" class="form-control date-control"
+                                                        id="srn_date" placeholder="SRN Date" value="{{.SRNDate}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Delivery Note No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="deliveryNote_no" class="form-control"
+                                                        id="deliveryNote_no" placeholder="Delivery Note No."
+                                                        value="{{.DeliveryNoteNo}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Invoice No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="invoice_no" class="form-control"
+                                                        id="invoice_no" placeholder="Invoice No."
+                                                        value="{{.InvoiceNo}}">
+                                                </span>
+                                            </div>
+                                            <hr>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Item Name:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="itemName" class="form-control"
+                                                        id="itemName" placeholder="Item Name" value="{{.ItemName}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Item Description:</span>
+                                                <span class="proc-detail">
+                                                    <textarea class="form-control" rows="4"
+                                                        name="itemDescription">{{.ItemDescription}}</textarea>
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Part/ID No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" name="partID" class="form-control" id="partID"
+                                                        placeholder="Part/ID No." value="{{.PartIDNo}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Unit of Measure:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="unit_measure" class="form-control"
+                                                        id="unit_measure" placeholder="Unit of Measure" value="{{.UnitMeasure}}"
+                                                        list="unit_of_measures">
+                                                    <datalist id="unit_of_measures">
+                                                        <option value="pcs">
+                                                        <option value="carton(s)">
+                                                        <option value="ream(s)">
+                                                        <option value="box(es)">
+                                                    </datalist>
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Quantity Received:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" name="qty_received" class="form-control"
+                                                        id="qty_received" placeholder="Quantity Received"
+                                                        value="{{.QtyReceived}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Unit Rate:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" name="unit_rate_grn" class="form-control"
+                                                        id="unit_rate_grn" placeholder="Unit Rate" value="{{.UnitRate}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Amount:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" name="amount_grn" class="form-control" id="amount_grn"
+                                                        placeholder="Amount" value="{{.Amount}}">
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-flat btn-addon btn-sm"><i
+                                                class="ti-save m-r-5"></i>Save</button>
+                                        <a href="/grn/{{.ID}}">
+                                            <button type="button" class="btn btn-info btn-flat btn-addon btn-sm"><i
+                                                    class="ti-eye m-r-5"></i>View
+                                            </button>
+                                        </a>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="2">
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created:</span>
+                                        <span class="proc-detail">{{.CreatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Updated:</span>
+                                        <span class="proc-detail">{{.UpdatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created By:</span>
+                                        <span class="proc-detail">{{.UserName}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Email:</span>
+                                        <span class="proc-detail">{{.UserEmail}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

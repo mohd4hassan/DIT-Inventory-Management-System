@@ -1,0 +1,95 @@
+{{define "yield"}}
+<div class="col-md-12">
+	<div class="panel panel-dark">
+		<div class="panel-heading">
+			<h3 class="panel-title">New Stores Requisition Form</h3>
+		</div>
+		<div class="panel-body">
+			{{template "StoresRequisitionForm"}}
+		</div>
+	</div>
+</div>
+{{end}}
+
+{{define "StoresRequisitionForm"}}
+<form class="form-horizontal" action="/storesRequisition" method="POST">
+	{{csrfField}}
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="serialNo">Serial No.</label>
+				<div class="col-md-7">
+					<input type="number" name="serialNo" class="form-control" id="serialNo" placeholder="Serial No.">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="date">Date</label>
+				<div class="col-md-7">
+					<input type="date" name="date" class="form-control date-control" id="date" placeholder="Date">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="department">Department</label>
+				<div class="col-md-7">
+					<input type="text" name="department" class="form-control" id="department" placeholder="Department">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="description">Description</label>
+				<div class="col-md-7">
+					<input type="text" name="description" class="form-control" id="description" placeholder="Description">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="stock_on_hand">Stock on hand</label>
+				<div class="col-md-7">
+					<input type="text" name="stock_on_hand" class="form-control" id="stock_on_hand"
+						placeholder="Stock on hand">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="qty_ordered">Quantity to be ordered</label>
+				<div class="col-md-7">
+					<input type="text" name="qty_ordered" class="form-control" id="qty_ordered"
+						placeholder="Quantity to be ordered">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="sinNo">SIN No.</label>
+				<div class="col-md-7">
+					<input type="text" name="sinNo" class="form-control" id="sinNo" placeholder="SIN No.">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="lpoNo">LPO No.</label>
+				<div class="col-md-7">
+					<input type="text" name="lpoNo" class="form-control" id="lpoNo" placeholder="LPO No.">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3 col-lg-offset-9">
+			<button type="submit" class="btn btn-md btn-block btn-primary">Add</button>
+		</div>
+	</div>
+</form>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

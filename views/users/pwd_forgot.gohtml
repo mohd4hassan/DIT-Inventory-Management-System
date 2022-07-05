@@ -1,0 +1,49 @@
+{{define "pwdForgot"}}
+{{template "header"}}
+<div class="container">
+  {{if .Alert}}
+    {{template "alert" .Alert}}
+  {{end}}
+  {{template "pwdForgotForm"}}
+</div>
+{{template "bootstrap-js"}}
+
+</body>
+
+</html>
+{{end}}
+
+{{define "pwdForgotForm"}}
+<div class="unix-login">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <div class="login-content">
+          <div class="login-logo">
+            <a href="/">
+              <img src="/assets/images/logo.png" alt="DIT Logo">
+              <span>DIT Inventory Management System</span>
+            </a>
+          </div>
+          <div class="login-form">
+            <h4>Forgot your Password?</h4>
+            <form action="/forgot" method="POST">
+              {{csrfField}}
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="{{.Email}}" required>
+              </div>
+              <div class="checkbox">
+                <label class="pull-right">
+                    <a href="/login">Remember your password?</a>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}

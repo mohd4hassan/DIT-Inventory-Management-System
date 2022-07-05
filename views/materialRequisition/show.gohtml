@@ -1,0 +1,114 @@
+{{define "yield"}}
+<div class="col-lg-12">
+    <div class="card alert">
+        <div class="card-header">
+            <h4>Procurement Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="m-t-15">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="user-profile-name dib">Material Requisition</div>
+                        <div class="useful-icon dib pull-right">
+                            <a href="/materialrequisition/{{.ID}}/edit">
+                                <button type="button" class="btn btn-info btn-flat btn-addon btn-xs m-b-10 m-l-5">Edit<i
+                                        class="ti-arrow-left"></i></button>
+                            </a>
+                            <button type="button"
+                                class="btn btn-default btn-flat btn-addon btn-xs m-b-10 m-l-5">Download<i
+                                    class="ti-download"></i></button>
+                        </div>
+                        <div class="custom-tab user-profile-tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab"
+                                        data-toggle="tab">Information</a></li>
+                                <li role="presentation" class=""><a href="#2" aria-controls="2" role="tab"
+                                        data-toggle="tab">Details</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="1">
+                                    <div class="proc-information">
+                                        <div class="proc-content">
+                                            <span class="proc-title">Procuring Entity Code No.:</span>
+                                            <span class="proc-detail">{{.Entity_code}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Type of Procurement:</span>
+                                            <span class="proc-detail">{{.Proc_type}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Subject of Procurement:</span>
+                                            <span class="proc-detail">{{.Subject}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Serial No.:</span>
+                                            <span class="proc-detail">{{.SerialNo}}</span>
+                                        </div>
+                                        <hr>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Item ID:</span>
+                                            <span class="proc-detail">{{.ID}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Item Name:</span>
+                                            <span class="proc-detail">{{.ItemName}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Description:</span>
+                                            <span class="proc-detail">{{.Description}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Date Required:</span>
+                                            <span class="proc-detail">{{.DateReq}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Unit of Measure:</span>
+                                            <span class="proc-detail">{{.Unit}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Quantity:</span>
+                                            <span class="proc-detail">{{.Quantity}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Unit Cost:</span>
+                                            <span class="proc-detail">{{.Cost}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Sub Total Cost:</span>
+                                            <span class="proc-detail">{{.SubTotal}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="2">
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created:</span>
+                                        <span class="proc-detail">{{.CreatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Updated:</span>
+                                        <span class="proc-detail">{{.UpdatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created By:</span>
+                                        <span class="proc-detail">{{.UserName}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Email:</span>
+                                        <span class="proc-detail">{{.UserEmail}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

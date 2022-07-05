@@ -1,0 +1,15 @@
+{{define "masterLayout"}}
+<!DOCTYPE html>
+<html lang="en-us">
+    {{template "header"}}
+    {{template "style-css"}}
+<body style="background-color:#DBE2EF">
+    {{template "sidebar" .}}
+    {{template "navbar" .}}
+    {{template "contents" .}}
+
+    {{template "script-js"}}
+    {{template "bootstrap-js"}}
+</body>
+</html>
+{{end}}

@@ -1,0 +1,51 @@
+{{define "navbar"}}
+<div class="header">
+    <div class="pull-left">
+        <div class="logo">
+            <a href="/">
+                <img src="/assets/images/dit-title.png" alt="DIT Title" />
+                <img src="/assets/images/logo.png" alt="DIT Logo">
+                <span>&nbsp;&nbsp;Inventory Management System</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="pull-right p-r-15">
+        <ul>
+            <li class="header-icon dib">
+                <span class="user-avatar"></i>{{.User.Username}}
+                    <i class="ti-angle-down f-s-10 p-r-10 p-l-5"></i>
+                </span>
+                <img class="avatar-img" src="/assets/images/avatar/1.jpg" alt="" />
+                <div class="drop-down dropdown-profile">
+                    <div class="dropdown-content-body">
+                        <ul>
+                            {{if (ne .User.Role "Administrator")}}
+                            <li><a href="/forgot"><i class="ti-user"></i> <span>Change password</span></a></li>
+                            {{end}}
+
+                            {{if (eq .User.Role "Administrator")}}
+                            <li><a href="/register"><i class="ti-user"></i> <span>Register new user</span></a></li>
+                            <li><a href="/users"><i class="ti-user"></i> <span>Manage users</span></a></li>
+                            {{end}}
+
+                            <li>
+                                <a href="/logout" style="color: #dc143c;"><i class="ti-power-off"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{{end}}
+
+{{define "logoutForm"}}
+<form class="navbar-form navbar-left" action="/logout" method="POST">
+    {{csrfField}}
+    <button type="submit" class="btn btn-default">Log out</button>
+</form>
+{{end}}

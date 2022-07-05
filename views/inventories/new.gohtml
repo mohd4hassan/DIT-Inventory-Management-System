@@ -1,0 +1,123 @@
+{{define "yield"}}
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-dark">
+      <div class="panel-heading">
+        <h3 class="panel-title">New Inventories Form</h3>
+      </div>
+      <div class="panel-body">
+        {{template "InventoryForm"}}
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}
+
+{{define "InventoryForm"}}
+<form action="/inventories" method="POST">
+  {{csrfField}}
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="barcodeItem"><span>Barcodes</span></label>
+        <input type="text" name="barcodeItem" class="form-control" id="barcodeItem" placeholder="Barcode" readonly>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="serialNo">Serial No.</label>
+        <input type="number" name="serialNo" class="form-control" id="serialNo" placeholder="Product Category">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="prod_name"><span>Product Name</span></label>
+        <input type="text" name="prod_name" class="form-control" id="prod_name" placeholder="Product Name">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="prod_code"><span>Product Code</span></label>
+        <input type="text" name="prod_code" class="form-control" id="prod_code" placeholder="Product Code">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="prod_cat">Product Category</label>
+        <input type="text" name="prod_cat" class="form-control" id="prod_cat" placeholder="Product Category">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="prod_model">Product Model</label>
+        <input type="text" name="prod_model" class="form-control" id="prod_model" placeholder="Product Model">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="quantity">Quantity</label>
+        <input type="text" name="quantity" class="form-control" id="quantity" placeholder="Quantity">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="description">Description</label>
+        <input type="text" name="description" class="form-control" id="description" placeholder="Description">
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="unit_measure">Unit of Measure</label>
+        <input type="text" name="unit_measure" class="form-control" id="unit_measure" placeholder="Unit of Measure">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="unit_stock">Units in Stock</label>
+        <input type="text" name="unit_stock" class="form-control" id="unit_stock" placeholder="Units in Stock">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="manufacturer">Manufacturer</label>
+        <input type="text" name="manufacturer" class="form-control" id="manufacturer" placeholder="Manufacturer">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="min_stock">Minimum Stock</label>
+        <input type="number" name="min_stock" class="form-control" id="min_stock" placeholder="Minimum Stock">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="reorder_qty">Re-order Quantity</label>
+        <input type="text" name="reorder_qty" class="form-control" id="reorder_qty" placeholder="Re-order Quantity">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="supplier">Supplier</label>
+        <input type="text" name="supplier" class="form-control" id="supplier" placeholder="Supplier">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="depr_val">Depreciation Value</label>
+        <input type="text" name="depr_val" class="form-control" id="depr_val" placeholder="Depreciation Value">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="status">Status</label>
+        <input type="text" name="status" class="form-control" id="status" placeholder="Status">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 col-lg-offset-9">
+      <button type="submit" class="btn btn-md btn-block btn-primary">Add</button>
+    </div>
+  </div>
+</form>
+{{end}}
+
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

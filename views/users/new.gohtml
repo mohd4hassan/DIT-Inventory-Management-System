@@ -1,0 +1,61 @@
+{{define "yield"}}
+{{if (eq . "Administrator")}}
+<div class="col-lg-12">
+  <div class="card alert">
+    <div class="card-header m-b-10">
+      <h4>Registration for new users</h4>
+    </div>
+    <div class="card-body">
+      <!--  -->
+      <form action="/register" method="POST">
+        {{csrfField}}
+        <div class="form-group">
+          <label for="UserName">User Name</label>
+          <input type="text" name="UserName" class="form-control" id="UserName" placeholder="User Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select class="form-control" name="role" id="role" required>
+            <option hidden></option>
+            <option value="Head of Department">Head of Department</option>
+            <option value="PMU Officer">PMU Officer</option>
+            <option value="Technician/Lecturer">Technician/Lecturer</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+      </form>
+    </div>
+  </div>
+  <!-- /# card -->
+</div>
+<!-- /# column -->
+{{else}}
+<div class="sweetalert m-t-15"></div>
+<script>
+      setTimeout(function() {
+        swal({
+            title: "Admins only",
+            text: "Only admins can register new users",
+            type: "error",
+            confirmButtonText: "Ok"
+        }, function() {
+            window.location = "/";
+        }, 5000);
+    });
+</script>
+{{end}}
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

@@ -1,0 +1,115 @@
+{{define "yield"}}
+<div class="col-md-12">
+	<div class="panel panel-dark">
+		<div class="panel-heading">
+			<h3 class="panel-title">Procurement Procedural Form</h3>
+		</div>
+		<div class="panel-body">
+			{{template "MaterialRequisitionForm"}}
+		</div>
+	</div>
+</div>
+{{end}}
+
+{{define "MaterialRequisitionForm"}}
+<form class="form-horizontal" action="/materialrequisition" method="POST" id="MaterialRequisitionForm">
+	{{csrfField}}
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="entity_code">Procuring Entity Code No.</label>
+				<div class="col-md-7">
+					<input type="text" name="entity_code" class="form-control" id="entity_code"
+						placeholder="Procuring Entity Code">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="proc_type">Type of Procurement</label>
+				<div class="col-md-7">
+					<input type="text" name="proc_type" class="form-control" id="proc_type"
+						placeholder="Type of Procurement">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="subject">Subject of Procurement</label>
+				<div class="col-md-7">
+					<input type="text" name="subject" class="form-control" id="subject" placeholder="Subject of Procurement">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="indexSerialNo">Serial No.</label>
+				<div class="col-md-7">
+					<input type="number" name="indexSerialNo" class="form-control" id="indexSerialNo" placeholder="Serial No." readonly>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="itemName">Item Name</label>
+				<div class="col-md-7">
+					<input type="text" name="itemName" class="form-control" id="itemName" placeholder="Item Name">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="description">Description</label>
+				<div class="col-md-7">
+					<textarea class="form-control" rows="2" name="description" placeholder="Requirement Details and Specifications."></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="dateReq">Date Required</label>
+				<div class="col-md-7">
+					<input type="date" name="dateReq" class="form-control date-control" id="dateReq" placeholder="Date Required">
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="unit">Unit of Measure</label>
+				<div class="col-md-7">
+					<input type="text" name="unit" class="form-control" id="unit" placeholder="Unit of Measure" list="unit_of_measures">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="quantity">Quantity</label>
+				<div class="col-md-7">
+					<input type="number" name="quantity" class="form-control" id="quantity" placeholder="Quantity" value="0" min="0">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="cost">Unit Cost</label>
+				<div class="col-md-7">
+					<input type="number" name="cost" class="form-control" id="cost" placeholder="Estimated unit cost" value="0" min="0">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="">Sub Total Cost</label>
+				<div class="col-md-7">
+					<input type="number" name="subTotal" class="form-control" id="subTotal" placeholder="TZS " readonly>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3 col-lg-offset-9">
+			<button type="submit" class="btn btn-md btn-block btn-primary">Add</button>
+		</div>
+	</div>
+</form>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

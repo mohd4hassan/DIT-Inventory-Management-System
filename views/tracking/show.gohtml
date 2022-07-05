@@ -1,0 +1,119 @@
+{{define "yield"}}
+<div class="col-lg-12">
+    <div class="card alert">
+        <div class="card-header">
+            <h4>Tracking Records</h4>
+        </div>
+        <div class="card-body">
+            <div class="m-t-15">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="user-profile-name dib">Tracking Records</div>
+                        <div class="useful-icon dib pull-right">
+                            <a href="/tracking/{{.ID}}/edit">
+                                <button type="button" class="btn btn-info btn-flat btn-addon btn-xs m-b-10 m-l-5">Edit<i
+                                        class="ti-arrow-left"></i></button>
+                            </a>
+                            <button type="button"
+                                class="btn btn-default btn-flat btn-addon btn-xs m-b-10 m-l-5">Download<i
+                                    class="ti-download"></i></button>
+                        </div>
+                        <div class="custom-tab user-profile-tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab"
+                                        data-toggle="tab">Information</a></li>
+                                <li role="presentation" class=""><a href="#2" aria-controls="2" role="tab"
+                                        data-toggle="tab">Details</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="1">
+                                    <div class="proc-information">
+                                        <div class="proc-content">
+                                            <span class="proc-title">Serial No.:</span>
+                                            <span class="proc-detail">{{.SerialNo}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Item/Product/Device:</span>
+                                            <span class="proc-detail">{{.Item}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Model/Manufacture:</span>
+                                            <span class="proc-detail">{{.ItemModel}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Quantity:</span>
+                                            <span class="proc-detail">{{.Quantity}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Date Issued:</span>
+                                            <span class="proc-detail">{{.DateTaken}}</span>
+                                        </div>
+                                        <hr>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Authorized to:</span>
+                                            <span class="proc-detail">{{.StaffName}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Email:</span>
+                                            <span class="proc-detail">{{.StaffEmail}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Mobile No.:</span>
+                                            <span class="proc-detail">{{.StaffMobile}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Office:</span>
+                                            <span class="proc-detail">{{.StaffOffice}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Department:</span>
+                                            <span class="proc-detail">{{.StaffDept}}</span>
+                                        </div>
+                                        <hr>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Authorized By:</span>
+                                            <span class="proc-detail">{{.AuthorizedBy}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Expected Returning Date:</span>
+                                            <span class="proc-detail">{{.ExpectedReturningDate}}</span>
+                                        </div>
+                                        <div class="proc-content">
+                                            <span class="proc-title">Status:</span>
+                                            <span class="proc-detail">{{.Status}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="2">
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created:</span>
+                                        <span class="proc-detail">{{.CreatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Updated:</span>
+                                        <span class="proc-detail">{{.UpdatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created By:</span>
+                                        <span class="proc-detail">{{.UserName}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Email:</span>
+                                        <span class="proc-detail">{{.UserEmail}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

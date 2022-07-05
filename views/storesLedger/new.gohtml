@@ -1,0 +1,147 @@
+{{define "yield"}}
+<div class="col-md-12">
+	<div class="panel panel-dark">
+		<div class="panel-heading">
+			<h3 class="panel-title">New Stores Ledger Form</h3>
+		</div>
+		<div class="panel-body">
+			{{template "StoresLedgerForm"}}
+		</div>
+	</div>
+</div>
+{{end}}
+
+{{define "StoresLedgerForm"}}
+<form action="/storesLedger" method="POST">
+	{{csrfField}}
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="date">Date</label>
+				<input type="date" name="date" class="form-control date-control" id="date" placeholder="Date.">
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="item">Item</label>
+				<input type="text" name="item" class="form-control" id="item" placeholder="Item/Product">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<div class="form-group">
+				  <label class="control-label" for="method_used">Method used</label>
+				  <select class="form-control" name="method_used" id="method_used">
+					 <option hidden></option>
+					 <option value="FIFO">FIFO</option>
+					 <option value="LIFO">LIFO</option>
+				  </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="unit_issue_receipt">Unit of Issue/Receipt</label>
+				<input type="text" name="unit_issue_receipt" class="form-control" id="unit_issue_receipt"
+					placeholder="Unit of Issue/Receipt">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="folio_no">Folio No.</label>
+				<input type="number" name="folio_no" class="form-control" id="folio_no" placeholder="Folio No.">
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="particular">Particular</label>
+				<input type="text" name="particular" class="form-control" id="particular" placeholder="Particular">
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	
+	<div class="row">
+		<div class="text-center">
+			<h3><u>Receipt</u></h3>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="rcpt_qty">Quantity</label>
+				<input type="text" name="rcpt_qty" class="form-control" id="rcpt_qty" placeholder="Quantity">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="rcpt_unit_rate">Unit Rate</label>
+				<input type="text" name="rcpt_unit_rate" class="form-control" id="rcpt_unit_rate" placeholder="Unit Rate">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="rcpt_amount">Amount</label>
+				<input type="text" name="rcpt_amount" class="form-control" id="rcpt_amount" placeholder="Amount" disabled>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="text-center">
+			<h3><u>Issue</u></h3>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="issue_qty">Quantity</label>
+				<input type="number" name="issue_qty" class="form-control" id="issue_qty" placeholder="Quantity">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="issue_unit_rate">Unit Rate</label>
+				<input type="number" name="issue_unit_rate" class="form-control" id="issue_unit_rate" placeholder="Unit Rate">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="issue_amount">Amount</label>
+				<input type="number" name="issue_amount" class="form-control" id="issue_amount" placeholder="Amount" disabled>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="text-center">
+			<h3><u>Balance</u></h3>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="balance_qty">Quantity</label>
+				<input type="number" name="balance_qty" class="form-control" id="balance_qty" placeholder="Quantity">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="balance_unit_rate">Unit Rate</label>
+				<input type="number" name="balance_unit_rate" class="form-control" id="balance_unit_rate"
+					placeholder="Unit Rate">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label" for="balance_amount">Amount</label>
+				<input type="number" name="balance_amount" class="form-control" id="balance_amount" placeholder="Amount" disabled>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col-md-3 col-lg-offset-9">
+			<button type="submit" class="btn btn-md btn-block btn-primary">Add</button>
+		</div>
+	</div>
+</form>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

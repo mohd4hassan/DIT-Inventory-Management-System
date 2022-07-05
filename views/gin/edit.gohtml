@@ -1,0 +1,143 @@
+{{define "yield"}}
+<div class="col-lg-12">
+    <div class="card alert">
+        <div class="card-header">
+            <h4>Stores Issue Note (SIN) Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="m-t-15">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="user-profile-name dib">Goods Issued Records</div>
+                        <div class="useful-icon dib pull-right">
+                            <span><a href=""><i class="ti-pencil-alt"></i></a> </span>
+                            <span><a href=""><i class="ti-printer"></i></a></span>
+                            <span><a href=""><i class="ti-download"></i></a></span>
+                            <span><a href=""><i class="ti-share"></i></a></span>
+                        </div>
+                        <div class="custom-tab user-profile-tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab"
+                                        data-toggle="tab">Information</a></li>
+                                <li role="presentation" class=""><a href="#2" aria-controls="2" role="tab"
+                                        data-toggle="tab">Details</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="1">
+                                    <form action="/gin/{{.ID}}/update" method="POST" class="form-inline" id="reqForm">
+                                        {{csrfField}}
+                                        <div class="proc-information">
+                                            <div class="proc-content">
+                                                <span class="proc-title">Serial No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" name="serial_no" class="form-control"
+                                                        id="serial_no" placeholder="Serial No." value="{{.SerialNo}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Department:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="department" class="form-control"
+                                                        id="department" placeholder="Department" value="{{.Department}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">GRN No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="grn" class="form-control" id="grn"
+                                                        placeholder="GRN No." value="{{.GRN}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Date:</span>
+                                                <span class="proc-detail">
+                                                    <input type="date" name="date" class="form-control date-control" id="date"
+                                                        placeholder="Date" value="{{.Date}}">
+                                                </span>
+                                            </div>
+                                            <hr>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Item Name:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="itemName" class="form-control"
+                                                        id="itemName" placeholder="Item Name" value="{{.ItemName}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Item Description:</span>
+                                                <span class="proc-detail">
+                                                    <textarea class="form-control" rows="4"
+                                                        name="description">{{.ItemDescription}}</textarea>
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Part/ID No.:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" name="partID" class="form-control" id="partID" placeholder="Part/ID No." value="{{.PartIDNo}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Unit of Measure:</span>
+                                                <span class="proc-detail">
+                                                    <input type="text" name="unit" class="form-control" id="unit" placeholder="Unit of Measure" value="{{.UnitMeasure}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Quantity Issued:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" name="qty_issued" class="form-control" id="qty_issued" placeholder="Quantity Issued" value="{{.QtyIssued}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Unit Rate:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" name="unit_rate" class="form-control" id="unit_rate" placeholder="Unit Rate" value="{{.UnitRate}}">
+                                                </span>
+                                            </div>
+                                            <div class="proc-content">
+                                                <span class="proc-title">Amount:</span>
+                                                <span class="proc-detail">
+                                                    <input type="number" name="amount" class="form-control" id="amount" placeholder="Amount" value="{{.Amount}}">
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-flat btn-addon btn-sm"><i class="ti-save m-r-5"></i>Save</button>
+                                        <a href="/gin/{{.ID}}">
+                                            <button type="button" class="btn btn-info btn-flat btn-addon btn-sm"><i class="ti-eye m-r-5"></i>View
+                                            </button>
+                                        </a>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="2">
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created:</span>
+                                        <span class="proc-detail">{{.CreatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Updated:</span>
+                                        <span class="proc-detail">{{.UpdatedAt}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Created By:</span>
+                                        <span class="proc-detail">{{.UserName}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                        <span class="proc-title">Email:</span>
+                                        <span class="proc-detail">{{.UserEmail}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

@@ -1,0 +1,121 @@
+{{define "yield"}}
+<div class="col-lg-12">
+   <div class="card alert">
+       <div class="card-header">
+           <h4>Inventory Management</h4>
+       </div>
+       <div class="card-body">
+           <div class="m-t-15">
+               <div class="row">
+                   <div class="col-md-12">
+                       <div class="user-profile-name dib">Inventory Details</div>
+                       <div class="useful-icon dib pull-right">
+                        <a href="/inventories/{{.ID}}/edit">
+                            <button type="button" class="btn btn-info btn-flat btn-addon btn-xs m-b-10 m-l-5">Edit<i
+                                    class="ti-arrow-left"></i></button>
+                        </a>
+                        <button type="button"
+                            class="btn btn-default btn-flat btn-addon btn-xs m-b-10 m-l-5">Download<i
+                                class="ti-download"></i></button>
+                    </div>
+                       <div class="custom-tab user-profile-tab">
+                           <ul class="nav nav-tabs" role="tablist">
+                               <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab" data-toggle="tab">Information</a></li>
+                               <li role="presentation" class=""><a href="#2" aria-controls="2" role="tab" data-toggle="tab">Details</a></li>
+                           </ul>
+                           <div class="tab-content">
+                              <div role="tabpanel" class="tab-pane active" id="1">
+                                 <div class="proc-information">
+                                    <div class="proc-content">
+                                       <span class="proc-title">Product Name:</span>
+                                       <span class="proc-detail">{{.ProductName}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Product Code:</span>
+                                       <span class="proc-detail">{{.ProductCode}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Product Category:</span>
+                                       <span class="proc-detail">{{.ProductCategory}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Product Model:</span>
+                                       <span class="proc-detail">{{.ProductModel}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Quantity:</span>
+                                       <span class="proc-detail">{{.Quantity}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Description:</span>
+                                       <span class="proc-detail">{{.Description}}</span>
+                                    </div>
+                                    <hr>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Unit of Measure:</span>
+                                       <span class="proc-detail">{{.UnitMeasure}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Units in Stock:</span>
+                                       <span class="proc-detail">{{.UnitStock}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Manufacturer:</span>
+                                       <span class="proc-detail">{{.Manufacturer}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Minimum Stock:</span>
+                                       <span class="proc-detail">{{.MinStock}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Re-order Quantity:</span>
+                                       <span class="proc-detail">{{.ReorderQty}}</span>
+                                    </div>
+                                    <hr>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Supplier:</span>
+                                       <span class="proc-detail">{{.Supplier}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Depreciation Value:</span>
+                                       <span class="proc-detail">{{.DepreciationValue}}</span>
+                                    </div>
+                                    <div class="proc-content">
+                                       <span class="proc-title">Status:</span>
+                                       <span class="proc-detail">{{.Status}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                               <div role="tabpanel" class="tab-pane" id="2">
+                                   <div class="proc-content">
+                                       <span class="proc-title">Created:</span>
+                                       <span class="proc-detail">{{.CreatedAt}}</span>
+                                   </div>
+                                   <div class="proc-content">
+                                       <span class="proc-title">Updated:</span>
+                                       <span class="proc-detail">{{.UpdatedAt}}</span>
+                                   </div>
+                                   <div class="proc-content">
+                                       <span class="proc-title">Created By:</span>
+                                       <span class="proc-detail">{{.UserName}}</span>
+                                   </div>
+                                   <div class="proc-content">
+                                       <span class="proc-title">Email:</span>
+                                       <span class="proc-detail">{{.UserEmail}}</span>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}

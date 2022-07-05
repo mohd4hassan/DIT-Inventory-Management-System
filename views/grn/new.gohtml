@@ -1,0 +1,170 @@
+{{define "yield"}}
+<div class="col-md-12">
+	<div class="panel panel-dark">
+		<div class="panel-heading">
+			<h3 class="panel-title">Goods Received Note (GRN)</h3>
+		</div>
+		<div class="panel-body">
+			{{template "GoodsReceivedNoteForm"}}
+		</div>
+	</div>
+</div>
+{{end}}
+
+{{define "GoodsReceivedNoteForm"}}
+<form class="form-horizontal" action="/grn" method="POST" id="GoodsReceivedNoteForm">
+	{{csrfField}}
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="serial_no">Serial No.</label>
+				<div class="col-md-7">
+					<input type="number" name="serial_no" class="form-control" id="serial_no" placeholder="Serial No." value="0" min="0">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="supplierName">Supplier's Name</label>
+				<div class="col-md-7">
+					<input type="text" name="supplierName" class="form-control" id="supplierName" placeholder="Supplier's Name">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="lpo_no">LPO No.</label>
+				<div class="col-md-7">
+					<input type="text" name="lpo_no" class="form-control" id="lpo_no" placeholder="LPO No." value="0" min="0">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="department">Department</label>
+				<div class="col-md-7">
+					<input type="text" name="department" class="form-control" id="department" placeholder="Department">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="date">Date</label>
+				<div class="col-md-7">
+					<input type="date" name="date" class="form-control date-control" id="date" placeholder="Date">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="lpo_date">LPO Date</label>
+				<div class="col-md-7">
+					<input type="date" name="lpo_date" class="form-control date-control" id="lpo_date" placeholder="LPO Date">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="srn_no">SRN No.</label>
+				<div class="col-md-7">
+					<input type="text" name="srn_no" class="form-control" id="srn_no" placeholder="SRN No." value="0" min="0">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="srn_date">SRN Date</label>
+				<div class="col-md-7">
+					<input type="date" name="srn_date" class="form-control date-control" id="srn_date" placeholder="SRN Date">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="deliveryNote_no">Delivery Note No.</label>
+				<div class="col-md-7">
+					<input type="text" name="deliveryNote_no" class="form-control" id="deliveryNote_no"
+						placeholder="Delivery Note No.">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="invoice_no">Invoice No.</label>
+				<div class="col-md-7">
+					<input type="text" name="invoice_no" class="form-control" id="invoice_no" placeholder="Invoice No.">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="itemName">Item Name</label>
+				<div class="col-md-7">
+					<input type="text" name="itemName" class="form-control" id="itemName" placeholder="Item Name">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="itemDescription">Item Description</label>
+				<div class="col-md-7">
+					<textarea class="form-control" rows="2" name="itemDescription" placeholder="Item Description"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="partID">Part No.</label>
+				<div class="col-md-7">
+					<input type="text" name="partID" class="form-control" id="partID" placeholder="Part No.">
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="unit_measure">Unit of Measure</label>
+				<div class="col-md-7">
+					<input type="text" name="unit_measure" class="form-control" id="unit_measure"
+						placeholder="Unit of Measure" list="unit_of_measures">
+					<datalist id="unit_of_measures">
+						<option value="pcs">
+						<option value="carton(s)">
+						<option value="ream(s)">
+						<option value="box(es)">
+					</datalist>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="qty_received">Quantity Received</label>
+				<div class="col-md-7">
+					<input type="number" name="qty_received" class="form-control" id="qty_received"
+						placeholder="Quantity Received">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="unit_rate_grn">Unit Rate</label>
+				<div class="col-md-7">
+					<input type="number" name="unit_rate_grn" class="form-control" id="unit_rate_grn" placeholder="Unit Rate">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="amount_grn">Amount</label>
+				<div class="col-md-7">
+					<input type="number" name="amount_grn" class="form-control" id="amount_grn" placeholder="Amount" readonly>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3 col-lg-offset-9">
+			<button type="submit" class="btn btn-md btn-block btn-primary">Add</button>
+		</div>
+	</div>
+</form>
+{{end}}
+
+{{define "style-css"}}
+{{end}}
+
+{{define "script-js"}}
+{{end}}
